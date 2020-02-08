@@ -9,20 +9,18 @@
     "@types/react-dom": "^16.9.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-scripts": "3.3.1",
     "typescript": "3.7.5"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "echo \"start\"",
+    "build": "echo \"build\"",
     "build:lib": "./scripts/build.sh",
     "build:esm5": "tsc -p tsconfig-esm5.json",
     "build:esm2015": "tsc -p tsconfig-esm2015.json",
     "build:fesm5": "rollup -c rollup-esm5.conf.js",
     "build:fesm2015": "rollup -c rollup-esm2015.conf.js",
     "build:umd": "rollup -c rollup-umd.conf.js",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "test": "echo \"test\"",
     "lint": "frolint"
   },
   "eslintConfig": {
