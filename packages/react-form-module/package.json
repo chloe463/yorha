@@ -20,7 +20,7 @@
     "build:fesm5": "rollup -c rollup-esm5.conf.js",
     "build:fesm2015": "rollup -c rollup-esm2015.conf.js",
     "build:umd": "rollup -c rollup-umd.conf.js",
-    "test": "echo \"test\"",
+    "test": "jest",
     "lint": "frolint"
   },
   "eslintConfig": {
@@ -37,14 +37,32 @@
     "@testing-library/react-hooks": "^3.2.1",
     "codecov": "^3.6.4",
     "frolint": "^0.9.5",
+    "jest": "^25.1.0",
     "react-test-renderer": "^16.9.0",
     "rollup": "^1.27.14",
-    "stop-runaway-react-effects": "^1.2.1"
+    "stop-runaway-react-effects": "^1.2.1",
+    "ts-jest": "^25.2.0"
   },
   "jest": {
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
     "collectCoverageFrom": [
       "src/lib/**/*.{tsx,ts}"
-    ]
+    ],
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.json"
+      }
+    },
+    "testEnvironment": "node"
   },
   "repository": {
     "type": "git",
