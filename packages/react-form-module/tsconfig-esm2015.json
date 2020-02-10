@@ -14,6 +14,6 @@
     "declaration": true,
     "outDir": "./.packaging/esm2015"
   },
-  "include": ["src/lib/react-form-control/*"],
+  "include": ["src/*"],
   "exclude": ["__test__"]
 }

@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "echo \"start\"",
-    "build": "echo \"build\"",
+    "build": "./scripts/build.sh",
     "build:lib": "./scripts/build.sh",
     "build:esm5": "tsc -p tsconfig-esm5.json",
     "build:esm2015": "tsc -p tsconfig-esm2015.json",
