@@ -67,5 +67,10 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/chloe463/use-form-group"
+  },
+  "frolint": {
+    "eslint": {
+      "ignorePath": "./.eslintignore"
+    }
   }
 }
