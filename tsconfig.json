@@ -21,5 +21,9 @@
   },
   "include": [
     "./packages/**/src/*"
+  ],
+  "exclude": [
+    "./packages/**/*.test.tsx",
+    "./packages/**/*.test.ts"
   ]
 }

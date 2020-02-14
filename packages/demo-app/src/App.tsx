@@ -1,17 +1,17 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { useFormGroup, Validators } from '@chloe463/use-form-group';
+// import { useFormGroup, Validators } from '@chloe463/use-form-group';
 
 const App = () => {
-  const formGroup = useFormGroup({
-    values: {
-      text: "",
-    },
-    validators: {
-      text: [Validators.required],
-    },
-  });
+  // const formGroup = useFormGroup({
+  //   values: {
+  //     text: "",
+  //   },
+  //   validators: {
+  //     text: [Validators.required],
+  //   },
+  // });
   return (
     <div className="App">
       <header className="App-header">

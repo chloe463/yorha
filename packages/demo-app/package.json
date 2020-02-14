@@ -37,7 +37,5 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "frolint": "^0.9.6"
-  }
+  "devDependencies": {}
 }

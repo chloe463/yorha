@@ -9,6 +9,9 @@
   "private": true,
   "scripts": {
     "start": "lerna run start --parallel --stream",
-    "lint": "lerna run lint"
+    "lint": "frolint"
+  },
+  "devDependencies": {
+    "frolint": "^0.9.7"
   }
 }
