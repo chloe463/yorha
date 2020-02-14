@@ -1,6 +1,5 @@
 export type Validator = (value: any) => ValidatorErrors | null;
 export type AsyncValidator = (value: any) => Promise<null | ValidatorErrors>;
-// export type AsyncValidator = (value: any) => Promise<ValidatorErrors>;
 export interface ValidatorErrors {
   [key: string]: any;
 }
