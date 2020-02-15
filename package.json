@@ -8,6 +8,7 @@
   ],
   "private": true,
   "scripts": {
+    "postinstall": "lerna bootstrap",
     "start": "lerna run start --parallel --stream",
     "lint": "frolint --branch master",
     "test": "lerna run test --parallel --stream"
