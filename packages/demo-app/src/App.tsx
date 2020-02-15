@@ -17,8 +17,16 @@ interface State {
 }
 
 const App = () => {
-  const radios = [{ key: "radio1", value: "1" }, { key: "radio2", value: "2" }, { key: "radio3", value: "3" }];
-  const options = [{ key: "option1", value: "1" }, { key: "option2", value: "2" }, { key: "option3", value: "3" }];
+  const radios = [
+    { key: "radio1", value: "1" },
+    { key: "radio2", value: "2" },
+    { key: "radio3", value: "3" },
+  ];
+  const options = [
+    { key: "option1", value: "1" },
+    { key: "option2", value: "2" },
+    { key: "option3", value: "3" },
+  ];
   const checkboxes = [
     { value: "val1", checked: false },
     { value: "val2", checked: true },
