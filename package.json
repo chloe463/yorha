@@ -9,7 +9,8 @@
   "private": true,
   "scripts": {
     "start": "lerna run start --parallel --stream",
-    "lint": "frolint"
+    "lint": "frolint --branch master",
+    "test": "lerna run test --parallel --stream"
   },
   "devDependencies": {
     "frolint": "^0.9.7"
