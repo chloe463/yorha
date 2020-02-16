@@ -10,8 +10,9 @@
   "scripts": {
     "postinstall": "lerna bootstrap",
     "start": "lerna run start --parallel --stream",
-    "lint": "frolint --branch master",
-    "test": "lerna run test --parallel --stream"
+    "lint": "frolint",
+    "test": "lerna run test --parallel --stream",
+    "test:ci": "lerna run test --parallel"
   },
   "devDependencies": {
     "frolint": "^0.9.7"
