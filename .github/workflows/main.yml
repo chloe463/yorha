@@ -15,6 +15,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - run: yarn install
-      - run: yarn test
-
+      - name: Test packages and generate coverage report
+      - run: |
+          yarn install
+          yarn test:coverage
+      - name: Upload coverage report to Codecov
+      - uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          yml: ./codecov.yml
