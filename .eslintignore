@@ -1,0 +1,7 @@
+rollup-esm5.conf.js
+rollup-esm2015.conf.js
+rollup-umd.conf.js
+modify-package-json.js
+**/*.test.ts*
+jest.config.js
+

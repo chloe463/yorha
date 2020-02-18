@@ -1,0 +1,82 @@
+{
+  "name": "@chloe463/use-form-group",
+  "main": "./builds/bundle/use-form-group.umd.js",
+  "module": "./builds/esm5/use-form-group.js",
+  "es2015": "./builds/esm2015/use-form-group.js",
+  "typings": "./builds/src/index.d.ts",
+  "version": "0.2.0",
+  "license": "MIT",
+  "dependencies": {
+    "@types/jest": "25.1.1",
+    "@types/node": "13.7.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "typescript": "3.7.5"
+  },
+  "scripts": {
+    "start": "concurrently \"yarn build:esm2015:watch\" \"yarn build:fesm2015:watch\"",
+    "build": "./scripts/build.sh",
+    "build:lib": "./scripts/build.sh",
+    "build:esm5": "tsc -p tsconfig-esm5.json",
+    "build:esm2015": "tsc -p tsconfig-esm2015.json",
+    "build:fesm5": "rollup -c rollup-esm5.conf.js",
+    "build:fesm2015": "rollup -c rollup-esm2015.conf.js",
+    "build:umd": "rollup -c rollup-umd.conf.js",
+    "build:esm2015:watch": "tsc --watch -p tsconfig-esm2015.json",
+    "build:fesm2015:watch": "rollup --watch -c rollup-esm2015.conf.js",
+    "test": "jest",
+    "lint": "frolint"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "@testing-library/react": "^9.4.0",
+    "@testing-library/react-hooks": "^3.2.1",
+    "codecov": "^3.6.4",
+    "concurrently": "^5.1.0",
+    "jest": "^25.1.0",
+    "react-test-renderer": "^16.9.0",
+    "rollup": "^1.27.14",
+    "stop-runaway-react-effects": "^1.2.1",
+    "ts-jest": "^25.2.0"
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "collectCoverageFrom": [
+      "src/lib/**/*.{tsx,ts}"
+    ],
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.json"
+      }
+    },
+    "testEnvironment": "node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chloe463/use-form-group"
+  },
+  "frolint": {
+    "eslint": {
+      "ignorePath": "./.eslintignore"
+    }
+  }
+}

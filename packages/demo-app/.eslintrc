@@ -1,0 +1,13 @@
+{
+  "extends": "wantedly-typescript",
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "parserOptions": {
+    "project": [
+      "./tsconfig.json"
+    ]
+  }
+}

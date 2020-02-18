@@ -5,5 +5,22 @@
   "name": "my-packages-with-lerna",
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "private": true,
+  "scripts": {
+    "postinstall": "lerna bootstrap",
+    "start": "lerna run start --parallel --stream",
+    "lint": "frolint",
+    "test": "lerna run test --parallel --stream",
+    "test:ci": "lerna run test --parallel",
+    "test:coverage": "lerna run test --parallel -- --coverage"
+  },
+  "devDependencies": {
+    "frolint": "^0.9.7"
+  },
+  "frolint": {
+    "prettier": {
+      "config": "./.prettierrc"
+    }
+  }
 }
