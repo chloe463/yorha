@@ -1,7 +1,5 @@
 # use-form-group
 
-[![CircleCI](https://circleci.com/gh/chloe463/use-form-group/tree/master.svg?style=shield)](https://circleci.com/gh/chloe463/use-form-group/tree/master)
-[![codecov](https://codecov.io/gh/chloe463/use-form-group/branch/master/graph/badge.svg)](https://codecov.io/gh/chloe463/use-form-group)
 [![npmVersion](https://img.shields.io/npm/v/@chloe463/use-form-group.svg)](https://www.npmjs.com/package/@chloe463/use-form-group)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/8e94a15a-e810-4e37-b897-f943a557726b/deploy-status)](https://app.netlify.com/sites/useformgroup/deploys)
 
@@ -18,11 +16,7 @@ To initialize it, pass `values`, `validators`(optional) and `lazyInit` function 
 
 ```tsx
 import React from "react";
-import {
-  FormGroupProvider,
-  Validators,
-  useFormGroup
-} from "@chloe463/use-form-group";
+import { FormGroupProvider, Validators, useFormGroup } from "@chloe463/use-form-group";
 
 const AwesomeFormComponent = () => {
   const formGroup = useFormGroup({
@@ -37,7 +31,9 @@ const AwesomeFormComponent = () => {
   return (
     <FormGroupProvider formGroup={formGroup}>
       <form>
-        <button onClick={/* do something */} disabled={formGroup.status === "INVALID"}>Submit</button>
+        <button onClick={/* do something */} disabled={formGroup.status === "INVALID"}>
+          Submit
+        </button>
         <TextField />
       </form>
     </FormGroupProvider>
@@ -50,15 +46,15 @@ const AwesomeFormComponent = () => {
 To use value and update it, you can use `useFormControl`.
 With `useFormControl` you will get...
 
-|||
-|:-|:-|
-|value: any ||
-|setValue: `(value: any) => void` |A function to update the value|
-|errors: `{[key: string]: any}` |Validation errors|
-|pristine: boolean |True if the value is not updated|
-|dirty: boolean |True if the value is updated|
-|touched: boolean |True if the form is focused|
-|untouched: boolean |True if the form is not focused|
+|                                  |                                  |
+| :------------------------------- | :------------------------------- |
+| value: any                       |                                  |
+| setValue: `(value: any) => void` | A function to update the value   |
+| errors: `{[key: string]: any}`   | Validation errors                |
+| pristine: boolean                | True if the value is not updated |
+| dirty: boolean                   | True if the value is updated     |
+| touched: boolean                 | True if the form is focused      |
+| untouched: boolean               | True if the form is not focused  |
 
 ```tsx
 import React from "react";
@@ -80,11 +76,10 @@ If you want to manage an array of value, `useFormArray` would help you.
 It wraps `useFormControl`, so you can use every variable and function which is returned from `useFormControl`.
 Additionally, it provides `addOrRemoveValue` and `hasValue`.
 
-|||
-|:-|:-|
-|addOrRemoveValue: `({ value: any, checked?: boolean }) => void`|A function to add value to the array or remove value from the array.|
-|hasValue: `(value: any) => boolean`|Check wheather value is in the array.|
-
+|                                                                 |                                                                      |
+| :-------------------------------------------------------------- | :------------------------------------------------------------------- |
+| addOrRemoveValue: `({ value: any, checked?: boolean }) => void` | A function to add value to the array or remove value from the array. |
+| hasValue: `(value: any) => boolean`                             | Check wheather value is in the array.                                |
 
 ```tsx
 const CheckboxField: React.FC<Props> = ({ checkboxes }) => {
@@ -118,5 +113,4 @@ const CheckboxField: React.FC<Props> = ({ checkboxes }) => {
     </>
   );
 };
-
 ```
