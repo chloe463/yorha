@@ -1,6 +1,7 @@
 # Yorha
 
 ![Main](https://github.com/chloe463/yorha/workflows/Main/badge.svg)
+[![codecov](https://codecov.io/gh/chloe463/yorha/branch/master/graph/badge.svg)](https://codecov.io/gh/chloe463/yorha)
 
 ## Packages
 
