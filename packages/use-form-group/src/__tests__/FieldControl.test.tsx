@@ -1,5 +1,5 @@
 import React from "react";
-import { render, fireEvent, cleanup } from "@testing-library/react";
+import { render, fireEvent, cleanup, act } from "@testing-library/react";
 import { FormGroupProvider } from "../FormGroupContext";
 import { useFormGroup } from "../useFormGroup";
 import { FieldControl } from "../FieldControl";
@@ -22,7 +22,7 @@ const MockComponent: React.FC<{}> = () => {
                 type="text"
                 value={value}
                 onChange={e => setValue(e.target.value)}
-                ref={inputRef}
+                ref={inputRef as React.RefObject<HTMLInputElement>}
                 data-testid="input"
               />
               <span data-testid="value">{value}</span>
@@ -42,12 +42,14 @@ describe("FieldControl", () => {
     expect(container).toBeTruthy();
   });
 
-  it("can changes value", () => {
+  it("can changes value", async () => {
     const { getByTestId } = render(<MockComponent />);
     const input = getByTestId("input");
     const value = getByTestId("value");
     expect(value.innerHTML).toBe("");
-    fireEvent.change(input, { target: { value: "abc" } });
+    act(() => {
+      fireEvent.change(input, { target: { value: "abc" } });
+    });
     expect(value.innerHTML).toBe("abc");
   });
 
@@ -58,8 +60,10 @@ describe("FieldControl", () => {
     const untouched = getByTestId("untouched");
     expect(touched.innerHTML).toBe("false");
     expect(untouched.innerHTML).toBe("true");
-    input.focus();
-    input.blur();
+    act(() => {
+      input.focus();
+      input.blur();
+    });
     expect(touched.innerHTML).toBe("true");
     expect(untouched.innerHTML).toBe("false");
   });
@@ -77,13 +81,7 @@ const MockComponentWithoutProvider: React.FC<{}> = () => {
 
 describe("FieldControl", () => {
   it("crashes if it is not contained by FormGroupProvider", () => {
-    try {
-      render(<MockComponentWithoutProvider />);
-    } catch (e) {
-      expect(e.message).toBe(
-        'Could not find "formGroup" in context. Wrap the root component in a <FormGroupProvider>.'
-      );
-    }
+    expect(() => render(<MockComponentWithoutProvider />)).toThrow();
   });
 });
 
