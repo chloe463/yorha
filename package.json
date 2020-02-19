@@ -13,7 +13,8 @@
     "lint": "frolint",
     "test": "lerna run test --parallel --stream",
     "test:ci": "lerna run test --parallel",
-    "test:coverage": "lerna run test --parallel -- --coverage"
+    "test:coverage": "lerna run test --parallel -- --coverage",
+    "build": "lerna run build"
   },
   "devDependencies": {
     "frolint": "^0.9.7"
