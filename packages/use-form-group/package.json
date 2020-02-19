@@ -29,15 +29,6 @@
     "test": "jest",
     "lint": "frolint"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
   "devDependencies": {
     "@testing-library/react": "^9.4.0",
     "@testing-library/react-hooks": "^3.2.1",
@@ -48,35 +39,5 @@
     "rollup": "^1.27.14",
     "stop-runaway-react-effects": "^1.2.1",
     "ts-jest": "^25.2.0"
-  },
-  "jest": {
-    "roots": [
-      "<rootDir>/src"
-    ],
-    "moduleFileExtensions": [
-      "ts",
-      "js"
-    ],
-    "collectCoverageFrom": [
-      "src/lib/**/*.{tsx,ts}"
-    ],
-    "transform": {
-      "^.+\\.ts$": "ts-jest"
-    },
-    "globals": {
-      "ts-jest": {
-        "tsConfig": "tsconfig.json"
-      }
-    },
-    "testEnvironment": "node"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/chloe463/use-form-group"
-  },
-  "frolint": {
-    "eslint": {
-      "ignorePath": "./.eslintignore"
-    }
   }
 }
