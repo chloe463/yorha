@@ -4,7 +4,7 @@
   "module": "./dist/esm5/use-form-group.js",
   "es2015": "./dist/esm2015/use-form-group.js",
   "typings": "./dist/typings/index.d.ts",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "license": "MIT",
   "dependencies": {
     "@types/jest": "25.1.1",
