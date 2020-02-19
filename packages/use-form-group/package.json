@@ -39,5 +39,9 @@
     "rollup": "^1.27.14",
     "stop-runaway-react-effects": "^1.2.1",
     "ts-jest": "^25.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chloe463/yorha"
   }
 }
