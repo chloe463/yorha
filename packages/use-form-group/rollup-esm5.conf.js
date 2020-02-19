@@ -1,7 +1,7 @@
 export default {
-  input: ".packaging/esm5/index.js",
+  input: "./dist/esm5/index.js",
   output: {
-    file: "builds/esm5/use-form-group.js",
+    file: "./dist/esm5/use-form-group.js",
     format: "es",
   },
   external: ["react", "react-dom"],
