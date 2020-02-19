@@ -20,4 +20,4 @@ const modified = Object.assign({}, packageJson, {
 delete modified.eslintConfig;
 delete modified.browserslist;
 
-writeFileSync("./builds/package.json", JSON.stringify(modified, null, 2));
+writeFileSync("./dist/package.json", JSON.stringify(modified, null, 2));

@@ -12,7 +12,8 @@
     "resolveJsonModule": true,
     "jsx": "react",
     "declaration": true,
-    "outDir": "./.packaging/esm2015"
+    "declarationDir": "./dist/typings",
+    "outDir": "./dist/esm2015"
   },
   "include": ["src/*"],
   "exclude": ["__test__"]

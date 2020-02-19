@@ -1,7 +1,7 @@
 export default {
-  input: ".packaging/esm5/index.js",
+  input: "./dist/esm5/index.js",
   output: {
-    file: "builds/bundle/use-form-group.umd.js",
+    file: "./dist/bundle/use-form-group.umd.js",
     format: "umd",
     name: "use-form-group",
     globals: {
