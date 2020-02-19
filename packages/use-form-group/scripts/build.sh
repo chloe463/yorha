@@ -1,7 +1,6 @@
 #!/usr/bin/env sh
 
 set -eux
-set -o pipefail
 
 # Remove previous build files
 rm -rf ./dist
