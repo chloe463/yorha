@@ -1,8 +1,8 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import { FormGroupProvider } from "../FormGroupContext";
-import { useFormGroup } from "../useFormGroup";
 import { useFormArray } from "../useFormArray";
+import { useFormGroup } from "../useFormGroup";
 
 const MockCheckboxComponent: React.FC = () => {
   const { hasValue, addOrRemoveValue } = useFormArray("numbers");
@@ -33,16 +33,21 @@ const MockCheckboxComponent: React.FC = () => {
   );
 };
 
+const ValueComponent: React.FC = () => {
+  const formGroup = useFormGroup();
+  return <div data-testid="value">{JSON.stringify(formGroup.values.numbers)}</div>;
+};
+
 const MockContainer: React.FC = () => {
-  const formGroup = useFormGroup({
+  const props = {
     values: {
       numbers: [],
     },
-  });
+  };
   return (
-    <FormGroupProvider formGroup={formGroup}>
+    <FormGroupProvider {...props}>
       <MockCheckboxComponent />
-      <span data-testid="value">{JSON.stringify(formGroup.values.numbers)}</span>
+      <ValueComponent />
     </FormGroupProvider>
   );
 };

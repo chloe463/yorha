@@ -1,51 +1,20 @@
+import React from "react";
 import { renderHook, act } from "@testing-library/react-hooks";
-import { initMeta, initValidators, useFormGroup } from "../useFormGroup";
+import { FormGroupProvider } from "../FormGroupContext";
+import { useFormGroup } from "../useFormGroup";
 import { Validators } from "../Validators";
 
-describe("initMeta", () => {
-  it("initializes meta values", () => {
-    const values = {
-      num: 1,
-      str: "string",
-      bool: true,
-    };
-    const actual = initMeta(values);
-    const expected = {
-      num: { pristine: true, dirty: false, touched: false, untouched: true },
-      str: { pristine: true, dirty: false, touched: false, untouched: true },
-      bool: { pristine: true, dirty: false, touched: false, untouched: true },
-    };
-    expect(actual).toEqual(expected);
-  });
-});
-
-describe("initValidators", () => {
-  it("initializes validators", () => {
-    const values = {
-      num: [Validators.max(5)],
-      str: [Validators.maxLength(3)],
-      bool: [Validators.required],
-    };
-    const actual = initValidators(values);
-    expect(actual.validators).toBeTruthy();
-    expect(Object.keys(actual.validators).length).toBe(3);
-    expect(Object.keys(actual.validators)).toEqual(["num", "str", "bool"]);
-    expect(Object.values(actual.validators).length).toBe(3);
-    Object.values(actual.validators).forEach(validator => {
-      expect(validator).toBeInstanceOf(Function);
-    });
-  });
-});
+const DEFAULT_PROPS = {
+  values: {
+    num: 0,
+  },
+};
 
 describe("useFormGroup", () => {
   it("can render initial values", () => {
-    const { result } = renderHook(() =>
-      useFormGroup({
-        values: {
-          num: 0,
-        },
-      })
-    );
+    const { result } = renderHook(() => useFormGroup(), {
+      wrapper: ({ children }) => <FormGroupProvider {...DEFAULT_PROPS}>{children}</FormGroupProvider>,
+    });
     expect(result.current.values).toEqual({ num: 0 });
     expect(result.current.errors).toEqual({ num: null });
     expect(typeof result.current.setValue).toBe("function");
@@ -62,13 +31,9 @@ describe("useFormGroup", () => {
   });
 
   it("can set value on change event", () => {
-    const { result } = renderHook(() =>
-      useFormGroup({
-        values: {
-          num: 0,
-        },
-      })
-    );
+    const { result } = renderHook(() => useFormGroup(), {
+      wrapper: ({ children }) => <FormGroupProvider {...DEFAULT_PROPS}>{children}</FormGroupProvider>,
+    });
 
     expect(result.current.values).toEqual({ num: 0 });
     expect(result.current.metaInfos).toEqual({
@@ -95,16 +60,15 @@ describe("useFormGroup", () => {
   });
 
   it("can handle validation errors", () => {
-    const { result } = renderHook(() =>
-      useFormGroup({
-        values: {
-          num: 0,
-        },
-        validators: {
-          num: Validators.max(3),
-        },
-      })
-    );
+    const props = {
+      ...DEFAULT_PROPS,
+      validators: {
+        num: Validators.max(3),
+      },
+    };
+    const { result } = renderHook(() => useFormGroup(), {
+      wrapper: ({ children }) => <FormGroupProvider {...props}>{children}</FormGroupProvider>,
+    });
     expect(result.current.errors).toEqual({ num: null });
     // eslint-disable-next-line @typescript-eslint/no-floating-promises
     act(() => {
@@ -126,13 +90,10 @@ describe("useFormGroup", () => {
   });
 
   it("can reset values", () => {
-    const { result } = renderHook(() =>
-      useFormGroup({
-        values: {
-          num: 0,
-        },
-      })
-    );
+    const { result } = renderHook(() => useFormGroup(), {
+      wrapper: ({ children }) => <FormGroupProvider {...DEFAULT_PROPS}>{children}</FormGroupProvider>,
+    });
+
     // eslint-disable-next-line @typescript-eslint/no-floating-promises
     act(() => {
       result.current.setValue({ num: 1 });
@@ -163,13 +124,9 @@ describe("useFormGroup", () => {
   });
 
   it("can update touched/untouched via setTouchedOnBlur", async () => {
-    const { result } = renderHook(() =>
-      useFormGroup({
-        values: {
-          num: 0,
-        },
-      })
-    );
+    const { result } = renderHook(() => useFormGroup(), {
+      wrapper: ({ children }) => <FormGroupProvider {...DEFAULT_PROPS}>{children}</FormGroupProvider>,
+    });
 
     expect(result.current.metaInfos).toEqual({
       num: {

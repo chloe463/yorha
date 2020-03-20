@@ -11,14 +11,14 @@ export function useFormArray<T>(name: string) {
     ({ value, checked }: { value: any; checked?: boolean }) => {
       // NOTE: The formGroup must not be null, because useFormControl checks it and throws exception if formGroup is null.
       const currentValues: any[] = formGroup!.values[name];
-      formGroup!.setValue({
+      formGroup.setValue({
         [name]: checked ? [...currentValues, value] : [...currentValues].filter(v => v !== value),
       });
     },
     [formGroup, name]
   );
 
-  const hasValue = useCallback((value: any) => formGroup!.values[name].indexOf(value) !== -1, [formGroup, name]);
+  const hasValue = useCallback((value: any) => formGroup.values[name].indexOf(value) !== -1, [formGroup, name]);
   return {
     ...formControl,
     addOrRemoveValue,
