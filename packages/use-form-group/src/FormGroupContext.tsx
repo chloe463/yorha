@@ -15,7 +15,7 @@ export interface FormGroup {
 }
 
 export const FormGroupContext = createContext<FormGroup>({
-  status: "VALID",
+  status: null,
   metaInfos: {},
   setValue: () => {
     /* Do something */

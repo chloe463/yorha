@@ -7,7 +7,7 @@ export function useFormControl<T>(name: string) {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const selectRef = useRef<HTMLSelectElement | null>(null);
 
-  if (!formGroup) {
+  if (!formGroup || !formGroup.status) {
     throw new Error(
       ['Could not find "formGroup" in context.', "Wrap the root component in a <FormGroupProvider>."].join(" ")
     );
