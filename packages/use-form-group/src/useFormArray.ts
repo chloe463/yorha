@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { useContext, useCallback } from "react";
-import { FieldContext } from "./FormGroupContext";
+import { FormGroupContext } from "./FormGroupContext";
 import { useFormControl } from "./useFormControl";
 
 export function useFormArray<T>(name: string) {
-  const formGroup = useContext(FieldContext);
+  const formGroup = useContext(FormGroupContext);
   const formControl = useFormControl(name);
 
   const addOrRemoveValue = useCallback(

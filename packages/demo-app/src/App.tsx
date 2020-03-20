@@ -1,5 +1,5 @@
 import React from "react";
-import { FormGroupProvider, Validators, useFormGroup } from "@chloe463/use-form-group";
+import { FormGroupProvider, Validators } from "@chloe463/use-form-group";
 
 import "./App.css";
 import octocat from "./assets/GitHub-Mark-32px.png";
@@ -8,6 +8,7 @@ import { TextField } from "./TextField";
 import { RadioField } from "./RadioField";
 import { CheckboxField } from "./CheckboxField";
 import { SelectField } from "./SelectField";
+import { Preview } from "./Preview";
 
 interface State {
   text: string;
@@ -33,6 +34,7 @@ const App = () => {
     { value: "val3", checked: false },
   ];
 
+  ///
   const formGroupOptions = {
     values: {
       text: "abcd",
@@ -46,13 +48,6 @@ const App = () => {
     },
   };
 
-  const formGroup = useFormGroup<State>(formGroupOptions);
-
-  React.useEffect(() => {
-    // eslint-disable-next-line
-    console.log(formGroup.values);
-  }, [formGroup.values]);
-
   return (
     <div className="App">
       <div className="App__link-to-repo">
@@ -64,7 +59,7 @@ const App = () => {
       <div className="App__title-container">
         <h1 className="App__title">useFormGroup sample app</h1>
       </div>
-      <FormGroupProvider formGroup={formGroup}>
+      <FormGroupProvider {...formGroupOptions}>
         <div className="container">
           <form className="form">
             <div className="form__item">
@@ -92,20 +87,7 @@ const App = () => {
               </div>
             </div>
           </form>
-          <div className="preview">
-            <pre className="preview__values">
-              {JSON.stringify(
-                {
-                  status: formGroup.status,
-                  values: formGroup.values,
-                  errors: formGroup.errors,
-                  meta: formGroup.metaInfos,
-                },
-                null,
-                2
-              )}
-            </pre>
-          </div>
+          <Preview />
         </div>
       </FormGroupProvider>
     </div>
