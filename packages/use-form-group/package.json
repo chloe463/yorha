@@ -13,7 +13,7 @@
     "@types/react-dom": "^16.9.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "typescript": "3.7.5"
+    "typescript": "3.8.3"
   },
   "scripts": {
     "start": "concurrently \"yarn build:esm2015:watch\" \"yarn build:fesm2015:watch\"",
