@@ -17,7 +17,7 @@
     "build": "lerna run build"
   },
   "devDependencies": {
-    "frolint": "^0.9.7"
+    "frolint": "^1.0.7"
   },
   "frolint": {
     "prettier": {
