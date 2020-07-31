@@ -43,5 +43,11 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/chloe463/yorha"
+  },
+  "resolutions": {
+    "dot-prop": "^5.1.1",
+    "lodash": "^4.17.19",
+    "minimist": "^1.2.3",
+    "acorn": "^7.1.1"
   }
 }
