@@ -37,5 +37,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "resolutions": {
+    "dot-prop": "^5.1.1",
+    "lodash": "^4.17.19",
+    "minimist": "^1.2.3",
+    "acorn": "^7.1.1"
   }
 }
