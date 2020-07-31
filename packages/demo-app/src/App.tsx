@@ -57,7 +57,7 @@ const App = () => {
     <div className="App">
       <div className="App__link-to-repo">
         <a href="https://github.com/chloe463/yorha/tree/master/packages/use-form-group">
-          <img src={octocat} />
+          <img src={octocat} alt="octocat" />
         </a>
       </div>
 
