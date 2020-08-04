@@ -7,13 +7,13 @@ import { FieldControl } from "../FieldControl";
 afterEach(cleanup);
 
 const MockComponent: React.FC<{}> = () => {
-  const formGroup = useFormGroup({
+  const props = {
     values: {
       text: "",
     },
-  });
+  };
   return (
-    <FormGroupProvider formGroup={formGroup}>
+    <FormGroupProvider {...props}>
       <FieldControl name="text">
         {({ value, setValue, inputRef, touched, untouched }) => {
           return (
@@ -86,13 +86,13 @@ describe("FieldControl", () => {
 });
 
 const MockComponentWithoutRef: React.FC<{}> = () => {
-  const formGroup = useFormGroup({
+  const props = {
     values: {
       text: "",
     },
-  });
+  };
   return (
-    <FormGroupProvider formGroup={formGroup}>
+    <FormGroupProvider {...props}>
       <FieldControl name="text">
         {({ value, setValue }) => {
           return (

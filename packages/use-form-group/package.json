@@ -1,8 +1,6 @@
 {
   "name": "@chloe463/use-form-group",
-  "main": "./dist/bundle/use-form-group.umd.js",
-  "module": "./dist/esm5/use-form-group.js",
-  "es2015": "./dist/esm2015/use-form-group.js",
+  "main": "./dist/esm2015/use-form-group.js",
   "typings": "./dist/typings/index.d.ts",
   "version": "0.3.1",
   "license": "MIT",

@@ -1,13 +1,13 @@
-import { useContext, useCallback, useRef, useEffect } from "react";
-import { FieldContext } from "./FormGroupContext";
+import { useContext, useCallback, useRef, useEffect, useMemo } from "react";
+import { FormGroupContext } from "./FormGroupContext";
 
 export function useFormControl<T>(name: string) {
-  const formGroup = useContext(FieldContext);
+  const formGroup = useContext(FormGroupContext);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const selectRef = useRef<HTMLSelectElement | null>(null);
 
-  if (formGroup === null) {
+  if (!formGroup || !formGroup.status) {
     throw new Error(
       ['Could not find "formGroup" in context.', "Wrap the root component in a <FormGroupProvider>."].join(" ")
     );
@@ -28,10 +28,14 @@ export function useFormControl<T>(name: string) {
     /* eslint-disable-next-line */
   }, []);
 
+  const value = useMemo(() => values[name], [name, values]);
+  const metaInfo = useMemo(() => metaInfos[name], [metaInfos, name]);
+  const error = useMemo(() => errors[name], [errors, name]);
+
   return {
-    value: values[name],
-    ...metaInfos[name],
-    errors: errors[name],
+    value,
+    ...metaInfo,
+    errors: error,
     setValue,
     inputRef,
     selectRef,
