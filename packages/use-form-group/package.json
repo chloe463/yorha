@@ -36,7 +36,7 @@
     "concurrently": "^5.1.0",
     "jest": "^25.1.0",
     "react-test-renderer": "^16.9.0",
-    "rollup": "^1.27.14",
+    "rollup": "^2.36.2",
     "stop-runaway-react-effects": "^1.2.1",
     "ts-jest": "^25.2.0"
   },
